@@ -3,14 +3,14 @@
 #define _UNICODE
 using namespace std;
 
-void strspacetotab(_TCHAR* str);
-void strprintstats(const _TCHAR* str);
-void strcalculateword(const _TCHAR* str);
-void countthevowels();
-bool Ispalindrom(const _TCHAR* str);
-void strremove(_TCHAR*& str, int position);
-void strremovesymbol(_TCHAR*& str, _TCHAR symbol);
-void straddsymbol(_TCHAR*&, _TCHAR symbol, int position);
+void strspacetotab(_TCHAR* str); //Replaces spaces in a string with \t
+void strprintstats(const _TCHAR* str); //Prints the static of the word.
+void strcalculateword(const _TCHAR* str); //Counts the number of words
+void countthevowels();						//Counts the wovel in russian text. Keyboard imput.
+bool Ispalindrom(const _TCHAR* str);   //Returns true if the word is palindrom.
+void strremove(_TCHAR*& str, int position); //Removes a symbol from the respective position.
+void strremovesymbol(_TCHAR*& str, _TCHAR symbol); //Removes the respective symbol from the string completely.
+void straddsymbol(_TCHAR*&, _TCHAR symbol, int position); //Adds a symbol to the respective position.
 
 int main() {
 	setlocale(LC_ALL, "RUS");
@@ -22,24 +22,24 @@ int main() {
 	strprintstats(str);
 	strcalculateword(str);
 	if (Ispalindrom(str))
-		cout << "The word is palindorm " << endl;
+		wcout << "The word is palindorm " << endl;
 	else
-		cout << "The word is not a palindrom!" << endl;
+		wcout << "The word is not a palindrom!" << endl;
 	strremove(str, 0);
-	cout << endl;
+	wcout << endl;
 	wcout << str;
 	strremovesymbol(str, '1');
-	cout << endl;
+	wcout << endl;
 	wcout << str;
-	cout << endl;
+	wcout << endl;
 	for (int i = 0; i < 10; i++)
 	{
 		straddsymbol(str, '0', 0);
-		cout << endl;
+		wcout << endl;
 		wcout << str;
 	}
 	strremovesymbol(str, '0');
-	cout << endl;
+	wcout << endl;
 	wcout << str;
 	
 	countthevowels();
