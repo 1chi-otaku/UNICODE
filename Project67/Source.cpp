@@ -6,15 +6,16 @@ using namespace std;
 void strspacetotab(_TCHAR* str);
 void strprintstats(const _TCHAR* str);
 void strcalculateword(const _TCHAR* str);
-//5
+void countthevowels();
 bool Ispalindrom(const _TCHAR* str);
 void strremove(_TCHAR*& str, int position);
 void strremovesymbol(_TCHAR*& str, _TCHAR symbol);
 void straddsymbol(_TCHAR*&, _TCHAR symbol, int position);
 
 int main() {
-	int size = 27;
-	_TCHAR* str = new _TCHAR[size]{ 'H','e','1','1','o',' ','W','0','r','l','d','!',' ','a','n','d',' ', 'U','n','i','v','e','r','s','e','!','\0'};
+	setlocale(LC_ALL, "RUS");
+	int size = 32;
+	_TCHAR* str = new _TCHAR[size]{ 'H','e','1','1','o',' ','W','0','r','l','d','!',' ','a','n','d',' ', 'U','n','i','v','e','r','s','e','!'};
 	wcout << str << endl;
 	strspacetotab(str);
 	wcout << str << endl;
@@ -41,6 +42,8 @@ int main() {
 	cout << endl;
 	wcout << str;
 	
+	countthevowels();
+
 	return 0;
 }
 
@@ -97,6 +100,29 @@ void strcalculateword(const _TCHAR* str)
 	
 
 	cout << "Words - " << words << endl;
+}
+void countthevowels()
+{
+	int wovel_count = 0;
+	_TCHAR wovel[22] = _TEXT("аяуюоеёэиыАЯУЮОЕЁЭИЫ");
+	wstring lol;
+	wcout << "Enter the text: " << endl;
+	wcin >> lol;
+
+	for (int i = 0; i < lol.size(); i++)
+	{
+		for (int j = 0; j < 22; j++)
+		{
+			if (lol[i] == wovel[j]) {
+				wovel_count++;
+				break;
+			}
+		}
+	}
+
+	wcout << "Wovel - " << wovel_count << endl;
+
+
 }
 bool Ispalindrom(const _TCHAR* str)
 {
